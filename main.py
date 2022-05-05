@@ -5,7 +5,6 @@ app = FastAPI()
 async def prueba():
     return "Hola :D"
 
-@app.post("/")
-async def cargar_archivo(file: UploadFile = File(...)):
-    print(file)
-    return "Archivo cargado"
+@app.post("/uploadfile/")
+async def create_upload_file(file: UploadFile):
+    return {"filename": file.filename}
